@@ -38,7 +38,11 @@ To limit errors, you can make sure that every variable that you have in your .en
 2019-07-04T20:56:06.674580+00:00 app[web.1]:   port: 27017 }
 ```
 
-This means you are trying to connect to MongoDB via localhost. You need to make sure you are using the correct url. When you are running your app in development it is localhost, in production it should be the address that you can get by clicking on the _Settings_ tab and then _Reveal Config Vars_. You can see there is already a MONGODB_URI variable configured, so just add this to your mongoose connection link wherever you need it in your project:
+This means you are trying to connect to MongoDB via localhost. You need to make sure you are using the correct url.
+
+When you are running your app in development it is localhost, in production it should be the address that you can get by clicking on the _Settings_ tab and then _Reveal Config Vars_.
+
+You can see there is already a MONGODB_URI variable configured, so just add this to your mongoose connection link wherever you need it in your project:
 
 ```
 mongoose
@@ -48,3 +52,16 @@ mongoose
 (without the ... of course...)
 
 Commit the changes and push to the master branch, this should deploy again.
+
+
+## Connect to a GUI
+
+To visualize your database on Compass or [Studio3T](https://studio3t.com/ironhack) start by copying the MONGODB_URI config variable from the *Settings* tab.
+
+### Compass
+
+You should get a prompt asking if you want to use the URI in your clipboard. Accept and then change the following field: *authentication database* which is set as `admin` and use the value in the *username* field instead.
+
+### Studio3T
+
+Select *Connect*, *New Connection* and *From URI* on the main tab. Just paste the link and you're set up! Next time, just select the connection.
